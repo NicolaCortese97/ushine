@@ -21,28 +21,32 @@ class RegistrationController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        // 1. Validazione con i nomi delle colonne in italiano
+        // Validazione con i campi standard Laravel
         $request->validate([
-            'nome'      => ['required', 'string', 'max:100'],
+            'name'      => ['required', 'string', 'max:255'],      // Cambiato da 'nome'
             'cognome'   => ['required', 'string', 'max:100'],
             'email'     => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password'  => ['required', 'confirmed', Rules\Password::defaults()],
-            'tipo_utente' => ['required', 'in:Guest,Talent,Sponsor,Visitatore'], // Escludiamo Admin per sicurezza
+            'tipo_utente' => ['required', 'in:Guest,Talent,Sponsor,Visitatore'],
+            'accetta_termini' => ['required', 'accepted'],         // Aggiunto
         ]);
 
-        // 2. Creazione dell'utente
+        // Creazione dell'utente con campi standard Laravel
         $user = User::create([
-            'nome'          => $request->nome,
+            'name'          => $request->name,                    // Cambiato da 'nome'
             'cognome'       => $request->cognome,
             'email'         => $request->email,
-            'password_hash' => Hash::make($request->password), // Nome colonna del tuo SQL
+            'password'      => Hash::make($request->password),    // Cambiato da 'password_hash'
             'tipo_utente'   => $request->tipo_utente,
             'lingua_preferita' => 'IT',
-            'accetta_termini' => true, // Presumiamo che se è arrivato qui abbia cliccato la checkbox
+            'accetta_termini' => true,
+            'email_verified_at' => now(),                         // Aggiunto per verifica automatica
+            'premium' => false,
+            'verificato_identita' => false,
+            'bannato' => false,
         ]);
 
         event(new Registered($user));
-
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
