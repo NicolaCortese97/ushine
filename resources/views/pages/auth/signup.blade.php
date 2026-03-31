@@ -65,9 +65,9 @@
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="label-text" for="nome">Nome*</label>
-                                <input type="text" name="nome" placeholder="Il tuo nome" class="input @error('nome') input-error @enderror" id="nome" value="{{ old('nome') }}" required />
-                                @error('nome')
+                                <label class="label-text" for="name">Nome*</label>
+                                <input type="text" name="name" placeholder="Il tuo nome" class="input @error('name') input-error @enderror" id="name" value="{{ old('name') }}" required />
+                                @error('name')
                                 <span class="text-error text-sm mt-1">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -127,7 +127,7 @@
                         </div>
 
                         <div class="flex items-center gap-2">
-                            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm" id="policyagreement" name="terms" required />
+                            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm" id="policyagreement" name="accetta_termini" value="1" required />
                             <label class="label-text text-base-content/80 p-0 text-base" for="policyagreement"> 
                                 Accetto la <a href="#" class="link link-animated link-primary font-normal">privacy policy</a> e i <a href="#" class="link link-animated link-primary font-normal">termini</a>.
                             </label>
