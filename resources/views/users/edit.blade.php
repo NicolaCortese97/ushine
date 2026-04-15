@@ -21,6 +21,14 @@
                 </div>
 
                 <div>
+                    <label class="label-text" for="userCognome">Surname*</label>
+                    <input type="text" name="surname" placeholder="Enter surname" class="input @error('cognome') input-error @enderror" id="userName" value="{{ old('name', $user->name) }}" required />
+                    @error('cognome')
+                    <span class="text-error text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div>
                     <label class="label-text" for="userEmail">Email address*</label>
                     <input type="email" name="email" placeholder="Enter email address" class="input @error('email') input-error @enderror" id="userEmail" value="{{ old('email', $user->email) }}" required />
                     @error('email')

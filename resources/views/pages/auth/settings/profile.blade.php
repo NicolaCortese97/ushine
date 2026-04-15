@@ -34,23 +34,58 @@
                     @enderror
                 </div>
 
-                <!-- Email Input -->
+                <!-- Cognome Input -->
                 <div>
-                    <label class="label-text" for="email">Email</label>
+                    <label class="label-text" for="cognome">Surname</label>
                     <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        type="text"
+                        id="cognome"
+                        name="cognome"
                         class="input"
-                        placeholder="Enter your email"
-                        value="{{ old('email', $user->email) }}"
+                        placeholder="Enter your surname"
+                        value="{{ old('cognome', $user->cognome) }}"
                         required
                     />
-                    @error('email')
+                    @error('cognome')
                         <p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
+
+            <!-- CAMPO BIO -->
+            <div>
+                <label class="label-text mb-2 block" for="bio">Bio</label>
+                <textarea
+                    id="bio"
+                    name="bio"
+                    rows="6"
+                    class="textarea textarea-bordered w-full resize-y"
+                    placeholder="Tell your story..."
+                    style="min-height: 150px; padding: 12px; font-size: 14px; line-height: 1.5;"
+                >{{ old('bio', $user->bio) }}</textarea>
+                @error('bio')
+                    <p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                @enderror
+                <p class="mt-1 text-xs text-gray-500">Max 1000 characters</p>
+            </div>
+
+            {{-- <!-- Email Input -->
+
+            <div>
+                <label class="label-text" for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="input"
+                    placeholder="Enter your email"
+                    value="{{ old('email', $user->email) }}"
+                    required
+                />
+                @error('email')
+                    <p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                @enderror
+            </div> --}}
 
             <!-- Submit Button -->
             <div class="flex gap-3">
