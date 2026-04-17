@@ -40,6 +40,9 @@ class ProfileController extends Controller
             // ],
         ]);
 
+        $user->name = $validated['name'];
+        $user->cognome = $validated['cognome'];
+        $user->bio = $validated['bio'] ?? null;
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
