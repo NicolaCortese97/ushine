@@ -29,7 +29,7 @@ class ProfileController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'cognome' => ['required', 'string', 'max:100'],
-            'bio' => ['nullable', 'string', 'max:1000'],
+            'bio' => ['nullable', 'string', 'max:5000'], // Aumentato per via dei tag HTML di TinyMCE
             // 'email' => [
             //     'required',
             //     'string',
@@ -50,7 +50,7 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return to_route('settings.profile.edit')->with('status', __('Profile updated successfully'));
+        return to_route('settings.profile.edit')->with('status', 'Profile updated successfully');
     }
 
     public function destroy(Request $request): RedirectResponse

@@ -115,4 +115,28 @@
             </div>
         </div>
     </x-layouts.settings>
+
+    <!-- Includi TinyMCE via CDNJS per evitare l'avviso della licenza -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            tinymce.init({
+                selector: '#bio',
+                license_key: 'gpl',
+                plugins: 'lists link image', // Aggiunto 'image', rimosso 'code'
+                toolbar: 'undo redo | blocks | bold italic forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image', // Aggiunti colori e immagine, rimosso 'code'
+                menubar: false,
+                height: 300,
+                promotion: false,
+                branding: false, // Rimuove la scritta "Powered by TinyMCE" a destra
+                elementpath: false, // Nasconde le indicazioni dei tag (p, strong, ecc.) in basso a sinistra
+                // Configurazioni base per le immagini (permette di inserire URL o incollare immagini come base64)
+                image_title: true,
+                automatic_uploads: true,
+                file_picker_types: 'image',
+                /* images_upload_url: '/tuo-endpoint-laravel-per-upload', // Scommenta questa riga in futuro se vorrai salvare le immagini sul server */
+            });
+        });
+    </script>
 @endsection
