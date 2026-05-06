@@ -34,7 +34,7 @@
 
 <body>
     <!-- Layout wrapper -->
-    <div class="bg-base-200 flex min-h-screen flex-col">
+    <div class="bg-white flex min-h-screen flex-col">
         <!-- Header -->
         @include('layouts.header')
 
@@ -53,8 +53,7 @@
                 <div class="flex items-center justify-between gap-3 max-lg:flex-col">
                     <p class="text-base-content text-center">
                         &copy;{{ date('Y') }}
-                        <a href="https://flyonui.com/" class="text-primary">FlyonUI</a>
-                        , Made With ❤️ for a better web.
+                        Ushine
                     </p>
                 </div>
             </footer>

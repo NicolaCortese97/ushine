@@ -11,6 +11,52 @@
             </div>
         @endsession
 
+        <!-- Sezione Foto Profilo -->
+        <div class="mb-8">
+            <h5 class="text-base-content text-lg font-medium mb-4">Profile Picture</h5>
+            <div class="flex items-center gap-4">
+                <!-- Avatar Preview -->
+                <div class="shrink-0 relative group">
+                    @if(auth()->user()->foto_profilo)
+                        <img src="{{ auth()->user()->foto_profilo }}" alt="Avatar" class="w-16 h-16 rounded-full object-cover border border-base-300 shadow-sm" />
+                    @else
+                        <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=random" alt="Avatar" class="w-16 h-16 rounded-full object-cover shadow-sm" />
+                    @endif
+                </div>
+
+                <!-- Azioni Foto -->
+                <div class="flex flex-col gap-2">
+                    <form action="{{ route('settings.profile.photo.update') }}" method="POST" enctype="multipart/form-data" id="photo-upload-form">
+                        @csrf
+                        <label class="btn btn-primary btn-sm cursor-pointer flex items-center justify-center px-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                            Choose Photo
+                            <input type="file" name="foto_profilo" style="display:none;" accept="image/jpeg,image/png,image/jpg,image/webp" required onchange="document.getElementById('photo-upload-form').submit();" />
+                        </label>
+                    </form>
+                    
+                    @if(auth()->user()->foto_profilo)
+                    <form action="{{ route('settings.profile.photo.destroy') }}" method="POST" onsubmit="return confirm('Are you sure you want to remove your profile picture?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-error btn-sm w-full flex items-center justify-center px-4">
+                            Remove picture
+                        </button>
+                    </form>
+                    @endif
+
+                    @error('foto_profilo')
+                        <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <p class="text-xs text-base-content/60 mt-3">Recommended size: 256x256px. Max 2MB.</p>
+        </div>
+
+        <div class="divider"></div>
+
         <form method="POST" action="{{ route('settings.profile.update') }}" class="space-y-6">
             @csrf
             @method('PUT')

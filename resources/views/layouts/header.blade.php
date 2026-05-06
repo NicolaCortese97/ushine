@@ -14,8 +14,11 @@
                     <button id="profile-dropdown" type="button" class="dropdown-toggle avatar" aria-haspopup="menu"
                         aria-expanded="false" aria-label="Dropdown">
                         <span class="rounded-field size-9.5">
-                            <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=random"
-                                alt="User Avatar" />
+                            @if(auth()->user()->foto_profilo)
+                                <img src="{{ auth()->user()->foto_profilo }}" alt="Avatar" class="w-full h-full object-cover rounded-full" />
+                            @else
+                                <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=random" alt="Avatar" class="w-full h-full rounded-full" />
+                            @endif
                         </span>
                     </button>
                     <ul class="dropdown-menu dropdown-open:opacity-100 max-w-75 hidden w-full space-y-0.5" role="menu"
@@ -23,8 +26,11 @@
                         <li class="dropdown-header pt-4.5 mb-1 gap-4 px-5 pb-3.5">
                             <div class="avatar avatar-online-top">
                                 <div class="w-10 rounded-full">
-                                    <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=random"
-                                        alt="avatar" />
+                                    @if(auth()->user()->foto_profilo)
+                                        <img src="{{ auth()->user()->foto_profilo }}" alt="Avatar" class="w-full h-full object-cover" />
+                                    @else
+                                        <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=random" alt="avatar" />
+                                    @endif
                                 </div>
                             </div>
                             <div>

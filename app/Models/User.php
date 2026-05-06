@@ -119,11 +119,18 @@ class User extends Authenticatable
     /**
      * Relazione con commenti
      */
-    public function commenti()
+    public function comments()
     {
-        return $this->hasMany(Commento::class, 'user_id', 'id');
+        return $this->hasMany(Comment::class, 'user_id', 'id');
     }
 
+    /**
+     * Relazione con likes
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'user_id', 'id');
+    }
     /**
      * Relazione con badge
      */
