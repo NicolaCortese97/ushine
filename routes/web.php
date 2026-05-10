@@ -15,9 +15,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard', ['title' => 'Dashboard']);
-    })->name('dashboard');
+    Route::get('/profileInfo', function () {
+        return view('profileInfo', ['title' => 'profileInfo']);
+    })->name('profileInfo');
 
     Route::resource('users', UserController::class);
 

@@ -9,8 +9,8 @@ class MenuHelper
         return [
             [
                 'icon' => 'dashboard',
-                'name' => 'Dashboard',
-                'path' => route('dashboard', absolute: false),
+                'name' => 'profileInfo',
+                'path' => route('profileInfo', absolute: false),
             ],
         ];
     }

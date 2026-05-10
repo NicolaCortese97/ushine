@@ -44,6 +44,9 @@ class RegistrationController extends Controller
             'premium' => false,
             'verificato_identita' => false,
             'bannato' => false,
+            'xp_points' => 0,
+            'level' => 1,
+            'rank' => '#1',
         ]);
 
         event(new Registered($user));

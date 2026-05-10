@@ -7,7 +7,7 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Dashboard' }} | {{ config('app.name', 'Laravel') }}</title>
+    <title>Ushine</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,11 +38,16 @@
         <!-- Header -->
         @include('layouts.header')
 
-        <!-- Sidebar -->
-        @include('layouts.sidebar')
-
-        <!-- Layout Container -->
-        <div class="lg:ps-75 flex grow flex-col">
+        @if(request()->routeIs('homepage'))
+            <!-- Sidebar -->
+            @include('layouts.sidebar')
+            
+            <!-- Layout Container -->
+            <div class="lg:ps-75 flex grow flex-col">
+        @else
+            <!-- Layout Container -->
+            <div class="flex grow flex-col">
+        @endif
             <!-- Content -->
             <main class="mx-auto w-full max-w-[1280px] flex-1 grow space-y-6 p-6">
                 @yield('content')

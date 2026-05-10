@@ -26,9 +26,20 @@
                 <ul class="accordion menu menu-sm gap-1 p-3">
                     <!-- Dashboard Menu Item -->
                     <li>
-                        <a href="{{ route('dashboard') }}" @class(['inline-flex w-full items-center px-2', 'menu-active' => request()->routeIs('dashboard')])>
+                        <a href="{{ route('profileInfo') }}" @class(['inline-flex w-full items-center px-2', 'menu-active' => request()->routeIs('profileInfo')])>
                             <span class="icon-[tabler--dashboard] size-4.5"></span>
-                            <span class="grow">Dashboard</span>
+                            <span class="grow">Profile Info</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('homepage') }}" @class(['inline-flex w-full items-center px-2', 'menu-active' => request()->routeIs('homepage')])>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-4.5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l-2 2l9 -9l9 9l-2 -2" />
+                                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                            </svg>
+                            <span class="grow">Homepage</span>
                         </a>
                     </li>
 

@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'Ushine - Unleash Your Potential')
+
 
 @section('content')
 <div class="min-h-screen bg-[#F8F9FC]">

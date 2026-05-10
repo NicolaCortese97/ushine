@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'Verify Email - ' . config('app.name'))
+
 
 @section('content')
     <div class="auth-background flex h-auto min-h-screen items-center justify-center overflow-x-hidden bg-cover bg-center bg-no-repeat py-10">

@@ -29,26 +29,28 @@ class ProfileController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'cognome' => ['required', 'string', 'max:100'],
-            'bio' => ['nullable', 'string', 'max:5000'], // Aumentato per via dei tag HTML di TinyMCE
-            // 'email' => [
-            //     'required',
-            //     'string',
-            //     'lowercase',
-            //     'email',
-            //     'max:255',
-            //     Rule::unique(User::class)->ignore($user->id),
-            // ],
+            'bio' => ['nullable', 'string', 'max:1000000'],
+            'lingua' => ['nullable', 'string', 'max:50'],
+            'categories' => ['nullable', 'array'],
+            'categories.*' => ['exists:categories,id'],
         ]);
 
         $user->name = $validated['name'];
         $user->cognome = $validated['cognome'];
         $user->bio = $validated['bio'] ?? null;
+        $user->lingua = $validated['lingua'] ?? null;
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
         }
 
         $user->save();
+
+        if (isset($validated['categories'])) {
+            $user->categories()->sync($validated['categories']);
+        } else {
+            $user->categories()->detach();
+        }
 
         return to_route('settings.profile.edit')->with('status', 'Profile updated successfully');
     }

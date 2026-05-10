@@ -41,6 +41,10 @@ class User extends Authenticatable
         'bannato',
         'ban_scadenza',
         'motivo_ban',
+        'xp_points',
+        'level',
+        'rank',
+        'lingua',
     ];
 
     /**
@@ -137,5 +141,10 @@ class User extends Authenticatable
     public function badges()
     {
         return $this->hasMany(Badge::class, 'user_id', 'id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }
