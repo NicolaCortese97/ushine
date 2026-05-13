@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with(['user', 'comments.user', 'likes'])
+        $posts = Post::with(['user', 'comments.user', 'comments.likes', 'likes'])
                     ->latest()
                     ->get();
 
@@ -20,16 +20,34 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'contenuto' => 'required|string|max:2000',
+            'contenuto' => 'nullable|string|max:2000',
+            'media'     => 'nullable|file|mimes:jpg,jpeg,png,gif,webp,mp4,mov,avi,webm|max:51200',
         ]);
 
+        // Almeno testo o media obbligatorio
+        if (empty($validated['contenuto']) && !$request->hasFile('media')) {
+            return back()->withErrors(['contenuto' => 'Inserisci del testo o un file media.']);
+        }
+
         $post = new Post();
-        $post->user_id = auth()->id();
-        $post->contenuto = $validated['contenuto'];
-        $post->tipo = 'Testo';
+        $post->user_id   = auth()->id();
+        $post->contenuto = $validated['contenuto'] ?? '';
         $post->visibile_a = 'Tutti';
-        $post->approvato = true;
-        
+        $post->approvato  = true;
+
+        if ($request->hasFile('media')) {
+            $file      = $request->file('media');
+            $mimeType  = $file->getMimeType();
+            $isVideo   = str_starts_with($mimeType, 'video/');
+            $path      = $file->store('posts', 'public');
+
+            $post->media_path = $path;
+            $post->media_type = $isVideo ? 'video' : 'image';
+            $post->tipo       = $isVideo ? 'Video' : 'Foto';
+        } else {
+            $post->tipo = 'Testo';
+        }
+
         $post->save();
 
         return back()->with('success', 'Post pubblicato con successo!');

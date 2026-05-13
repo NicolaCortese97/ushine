@@ -16,6 +16,8 @@ class Post extends Model
         'user_id',
         'tipo',
         'contenuto',
+        'media_path',
+        'media_type',
         'visibile_a',
         'approvato',
         'motivo_rifiuto',

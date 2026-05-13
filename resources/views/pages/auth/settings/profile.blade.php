@@ -198,8 +198,8 @@
 
             <!-- Submit Button -->
             <div class="flex gap-3 mt-6">
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-                <button type="button" class="btn btn-soft btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <!-- <button type="button" class="btn btn-soft btn-secondary">Cancel</button> -->
             </div>
         </form>
 
