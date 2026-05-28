@@ -36,10 +36,19 @@ class PostController extends Controller
         $post->approvato  = true;
 
         if ($request->hasFile('media')) {
-            $file      = $request->file('media');
+            $file = $request->file('media');
+            
+            if (!$file->isValid()) {
+                return back()->withErrors(['media' => 'Errore durante il caricamento del file: potrebbe essere troppo grande.']);
+            }
+
             $mimeType  = $file->getMimeType();
             $isVideo   = str_starts_with($mimeType, 'video/');
-            $path      = $file->store('posts', 'public');
+            
+            // Usiamo move() invece di store() per evitare bug di getRealPath() su Windows
+            $fileName = $file->hashName();
+            $file->move(storage_path('app/public/posts'), $fileName);
+            $path = 'posts/' . $fileName;
 
             $post->media_path = $path;
             $post->media_type = $isVideo ? 'video' : 'image';

@@ -5,23 +5,26 @@
 @section('content')
 <div class="min-h-screen bg-base-100 font-sans text-base-content">
     <!-- Header -->
-    <header class="bg-base-100 border-b border-base-200 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <a href="{{ route('settings.index') }}" class="inline-flex items-center justify-center p-2 rounded-full hover:bg-base-200 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-base-content" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    <header class="bg-base-100 border-b border-base-200 sticky top-0 z-50" style="height: 64px; line-height: 64px;">
+        <div class="max-w-4xl mx-auto px-4" style="height: 100%; display: flex; align-items: center; justify-content: space-between; position: relative;">
+            
+            <!-- Left Side: Back button -->
+            <div style="display: flex; align-items: center; height: 100%;">
+                <a href="#" onclick="window.history.back(); return false;" class="hover:bg-base-200" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; transition: background-color 0.2s ease; text-decoration: none; color: inherit;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-base-content" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
-                </a>
-                <a href="{{ route('homepage') }}" class="flex items-center gap-2 ml-2">
-                    <svg class="w-4 h-4 text-base-content" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z"/>
-                    </svg>
-                    <span class="text-lg font-bold text-base-content tracking-tight">Ushine</span>
                 </a>
             </div>
             
-            <h1 class="text-xl font-bold">Edit Profile</h1>
+            <!-- Center Title: Centered with absolute positioning to prevent vertical/horizontal offsets -->
+            <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; max-width: 60%; width: auto; display: flex; align-items: center; justify-content: center; height: 100%;">
+                <h1 class="text-xl font-bold" style="margin: 0; padding: 0; line-height: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: auto;">Edit Profile</h1>
+            </div>
+            
+            <!-- Right Side Spacer (forces correct alignment and spacing) -->
+            <div style="width: 40px; height: 100%;"></div>
+            
         </div>
     </header>
 

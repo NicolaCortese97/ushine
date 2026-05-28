@@ -5,54 +5,11 @@
 @section('content')
 <div class="auth-background flex h-auto min-h-screen items-center justify-center overflow-x-hidden bg-cover bg-center bg-no-repeat py-10">
     <div class="relative flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div class="absolute">
-            <svg width="612" height="697" viewBox="0 0 612 697" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M360.405 111.996C393.955 67.9448 456.863 59.4318 500.914 92.9818V92.9818C544.965 126.532 553.478 189.44 519.928 233.491L250.545 587.191C216.995 631.243 154.087 639.756 110.036 606.206V606.206C65.9845 572.656 57.4716 509.747 91.0216 465.696L360.405 111.996Z" fill="url(#paint0_linear_13715_136336)" fill-opacity="0.08" />
-                <path d="M519.53 233.188L250.147 586.888C216.765 630.72 154.17 639.19 110.339 605.808C66.5071 572.425 58.0367 509.831 91.4194 465.999L360.802 112.299C394.185 68.4674 456.78 59.9969 500.611 93.3796C544.443 126.762 552.913 189.357 519.53 233.188Z" stroke="var(--color-primary)" stroke-opacity="0.2" />
-                <defs>
-                    <linearGradient id="paint0_linear_13715_136336" x1="500.914" y1="92.9818" x2="110.036" y2="606.206" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="var(--color-primary)" />
-                        <stop offset="1" stop-color="var(--color-primary)" stop-opacity="0.2" />
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
-
         <div class="bg-base-100 shadow-base-300/20 z-1 w-full space-y-6 rounded-xl p-6 shadow-md sm:max-w-lg lg:p-8">
-            <div class="flex items-center gap-3">
-                <a href="{{ route('landing') }}" class="flex items-center gap-3">
-                    <span class="text-primary">
-                        <svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_18078_104881)">
-                                <mask id="mask0_18078_104881" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="34" height="34">
-                                    <path d="M25.5 0H8.5C3.80558 0 0 3.80558 0 8.5V25.5C0 30.1944 3.80558 34 8.5 34H25.5C30.1944 34 34 30.1944 34 25.5V8.5C34 3.80558 30.1944 0 25.5 0Z" fill="white" />
-                                </mask>
-                                <g mask="url(#mask0_18078_104881)">
-                                    <path d="M25.5 0H8.5C3.80558 0 0 3.80558 0 8.5V25.5C0 30.1944 3.80558 34 8.5 34H25.5C30.1944 34 34 30.1944 34 25.5V8.5C34 3.80558 30.1944 0 25.5 0Z" fill="url(#paint0_linear_18078_104881)" />
-                                    <path d="M16.1238 20.1522C16.511 19.662 17.2479 19.6428 17.66 20.1122L20.5526 23.41C21.1194 24.0563 20.6611 25.0689 19.8016 25.0692H14.3055C13.47 25.0692 13.0026 24.1059 13.5203 23.4501L16.1238 20.1522ZM16.1326 8.45497C16.5308 7.95801 17.286 7.95453 17.6883 8.44813L27.5164 20.5077C28.0488 21.161 27.5838 22.1395 26.741 22.1395H24.4442C24.1428 22.1395 23.8577 22.0034 23.6678 21.7694L17.7029 14.4188C17.2962 13.9175 16.5285 13.927 16.1346 14.4384L10.7303 21.454C10.5411 21.6996 10.2484 21.8435 9.9383 21.8436H7.4881C6.64925 21.8436 6.18332 20.8733 6.70783 20.2186L16.1326 8.45497Z" fill="url(#paint1_linear_18078_104881)" />
-                                </g>
-                                <path d="M25.5002 0.707886H8.50017C4.19695 0.707886 0.708496 4.19634 0.708496 8.49956V25.4996C0.708496 29.8028 4.19695 33.2912 8.50017 33.2912H25.5002C29.8034 33.2912 33.2918 29.8028 33.2918 25.4996V8.49956C33.2918 4.19634 29.8034 0.707886 25.5002 0.707886Z" stroke="url(#paint2_linear_18078_104881)" stroke-width="2" />
-                            </g>
-                            <defs>
-                                <linearGradient id="paint0_linear_18078_104881" x1="30.2812" y1="2.65625" x2="4.25" y2="32.4063" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="currentColor" />
-                                    <stop offset="1" stop-color="currentColor" />
-                                </linearGradient>
-                                <linearGradient id="paint1_linear_18078_104881" x1="17.1147" y1="8.08008" x2="17.1147" y2="25.0692" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="white" />
-                                    <stop offset="1" stop-color="white" stop-opacity="0.6" />
-                                </linearGradient>
-                                <linearGradient id="paint2_linear_18078_104881" x1="17.0002" y1="-0.000447931" x2="17.0002" y2="33.9996" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="white" stop-opacity="0.28" />
-                                    <stop offset="1" stop-color="white" stop-opacity="0.04" />
-                                </linearGradient>
-                                <clipPath id="clip0_18078_104881">
-                                    <rect width="34" height="34" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </span>
-                    <h2 class="text-base-content text-xl font-bold">Ushine</h2>
+            <div class="flex flex-col items-center justify-center text-center gap-2">
+                <a href="{{ route('landing') }}" class="flex flex-col items-center gap-2">
+                    <img src="{{ asset('images/logoushine.png') }}" alt="Ushine Logo" class="h-16 w-auto object-contain">
+                    <!--<h2 class="text-base-content text-2xl font-bold tracking-tight">Ushine</h2>-->
                 </a>
             </div>
             <div>
@@ -113,24 +70,27 @@
                 </div>
 
                 <div>
-                    <label class="label-text" for="telefono">Phone Number*</label>
-                    <div class="flex gap-2">
-                        <select name="prefisso_internazionale" class="select w-28">
-                            <option value="+41">+41 (CH)</option>
-                            <option value="+39">+39 (IT)</option>
-                            <option value="+49">+49 (DE)</option>
-                            <option value="+33">+33 (FR)</option>
+                    <label class="label-text block mb-1.5" for="telefono">Phone Number*</label>
+                    <div class="phone-input-group flex items-center bg-base-100 overflow-hidden">
+                        <select name="prefisso_internazionale" class="phone-prefix-select bg-transparent outline-none cursor-pointer shrink-0">
+                            <option value="+39" {{ old('prefisso_internazionale', '+39') == '+39' ? 'selected' : '' }}>🇮🇹 +39</option>
+                            <option value="+41" {{ old('prefisso_internazionale') == '+41' ? 'selected' : '' }}>🇨🇭 +41</option>
+                            <option value="+49" {{ old('prefisso_internazionale') == '+49' ? 'selected' : '' }}>🇩🇪 +49</option>
+                            <option value="+33" {{ old('prefisso_internazionale') == '+33' ? 'selected' : '' }}>🇫🇷 +33</option>
+                            <option value="+44" {{ old('prefisso_internazionale') == '+44' ? 'selected' : '' }}>🇬🇧 +44</option>
+                            <option value="+1" {{ old('prefisso_internazionale') == '+1' ? 'selected' : '' }}>🇺🇸 +1</option>
                         </select>
+                        <div class="w-[1px] h-6 bg-base-content/20 shrink-0"></div>
                         <input type="tel" 
                                name="telefono" 
                                id="telefono"
-                               class="input flex-1 @error('telefono') input-error @enderror" 
+                               class="phone-number-input flex-1 bg-transparent outline-none" 
                                placeholder="Enter your phone number"
                                value="{{ old('telefono') }}"
                                required>
                     </div>
                     @error('telefono')
-                        <span class="text-error text-sm">{{ $message }}</span>
+                        <span class="text-error text-sm mt-1.5 block">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -169,6 +129,30 @@
                     <div class="h-1 bg-base-200 rounded-full mt-1 overflow-hidden">
                         <div id="strengthBar" class="h-full transition-all duration-300" style="width: 0%;"></div>
                     </div>
+                </div>
+
+                <!-- Categories Selector -->
+                <div>
+                    <label class="label-text mb-2.5 block" for="categories">What are your interests / categories?*</label>
+                    <div class="flex flex-wrap gap-2.5">
+                        @php
+                            $allCategories = \App\Models\Category::all();
+                        @endphp
+                        @foreach($allCategories as $category)
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="hidden category-checkbox" {{ is_array(old('categories')) && in_array($category->id, old('categories')) ? 'checked' : '' }}>
+                                <div class="category-chip font-medium text-sm transition-all duration-200 flex items-center gap-1.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 check-icon hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    {{ $category->name }}
+                                </div>
+                            </label>
+                        @endforeach
+                    </div>
+                    @error('categories')
+                        <p class="mt-1.5 text-sm text-error">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- User Type Selector (come in Flutter) -->
@@ -276,6 +260,104 @@ document.getElementById('registerBtn')?.addEventListener('click', function(e) {
 .user-type-option.active {
     border: 3px solid #607AFB;
     font-weight: 600;
+}
+
+/* Stili personalizzati per il campo telefono premium */
+.phone-input-group {
+    border: 1px solid #CED2E9;
+    background-color: #ffffff;
+    height: 44px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.phone-input-group:focus-within {
+    border-color: #607AFB;
+    box-shadow: 0 0 0 2px rgba(96, 122, 251, 0.2);
+}
+[data-theme="dark"] .phone-input-group {
+    border-color: rgba(228, 228, 231, 0.2);
+    background-color: transparent;
+}
+[data-theme="dark"] .phone-input-group:focus-within {
+    border-color: #607AFB;
+    box-shadow: 0 0 0 2px rgba(96, 122, 251, 0.2);
+}
+.phone-prefix-select {
+    width: 86px !important;
+    min-width: 86px !important;
+    max-width: 86px !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    font-size: 14px !important;
+    color: #0D0F1C !important;
+    padding-left: 10px !important;
+    padding-right: 4px !important;
+    cursor: pointer !important;
+    height: 100% !important;
+}
+[data-theme="dark"] .phone-prefix-select {
+    color: #e4e4e7 !important;
+}
+.phone-prefix-select option {
+    background-color: #ffffff;
+    color: #0D0F1C;
+}
+[data-theme="dark"] .phone-prefix-select option {
+    background-color: #1a1d2e;
+    color: #e4e4e7;
+}
+.phone-number-input {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    font-size: 14px !important;
+    color: #0D0F1C !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+[data-theme="dark"] .phone-number-input {
+    color: #e4e4e7 !important;
+}
+
+/* Stili per i chip selezionati/deselezionati nella registrazione */
+.category-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px !important;
+    border-radius: 9999px !important; /* Pills shape pillola */
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(13, 15, 28, 0.2) !important;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.category-chip:hover {
+    background-color: rgba(13, 15, 28, 0.05) !important;
+}
+.category-checkbox:checked + .category-chip {
+    background-color: var(--color-primary, #607AFB) !important;
+    color: #ffffff !important;
+    border-color: var(--color-primary, #607AFB) !important;
+}
+.category-checkbox:not(:checked) + .category-chip {
+    background-color: transparent !important;
+    color: #0D0F1C !important;
+    border-color: rgba(13, 15, 28, 0.2) !important;
+}
+[data-theme="dark"] .category-checkbox:not(:checked) + .category-chip {
+    color: #e4e4e7 !important;
+    border-color: rgba(228, 228, 231, 0.2) !important;
+}
+[data-theme="dark"] .category-chip:hover {
+    background-color: rgba(228, 228, 231, 0.1) !important;
+}
+.category-checkbox:checked + .category-chip .check-icon {
+    display: inline-block !important;
 }
 </style>
 @endpush

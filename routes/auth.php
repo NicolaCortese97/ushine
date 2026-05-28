@@ -37,6 +37,10 @@ Route::middleware(['auth'])->group(function () {
         return view('pages.auth.settings.index');
     })->name('settings.index');
     
+    Route::get('settings/notifications', function () {
+        return view('pages.auth.settings.notifications');
+    })->name('settings.notifications');
+    
     Route::get('settings/profile', [Settings\ProfileController::class, 'edit'])->name('settings.profile.edit');
     Route::put('settings/profile', [Settings\ProfileController::class, 'update'])->name('settings.profile.update');
     Route::delete('settings/profile', [Settings\ProfileController::class, 'destroy'])->name('settings.profile.destroy');

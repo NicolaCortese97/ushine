@@ -12,6 +12,9 @@ Route::get('/landing', function () {
 })->name('landing');
 
 Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('homepage');
+    }
     return redirect()->route('landing');
 })->name('home');
 
@@ -19,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profileInfo', function () {
         return view('profileInfo', ['title' => 'profileInfo']);
     })->name('profileInfo');
+
+    Route::get('/talents', [\App\Http\Controllers\TalentSearchController::class, 'index'])->name('talents.index');
 
     Route::resource('users', UserController::class);
 

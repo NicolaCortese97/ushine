@@ -10,12 +10,8 @@
             <div class="flex items-center justify-between h-16">
                 <!-- Logo e Titolo -->
                 <div class="flex items-center gap-4">
-                    <div class="w-4 h-4">
-                        <svg class="w-4 h-4 text-[#0D0F1C]" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z"/>
-                        </svg>
-                    </div>
-                    <span class="text-lg font-bold text-[#0D0F1C] tracking-tight">Ushine</span>
+ <img src="{{ asset('images/logoushine.png') }}" alt="Ushine Logo" class="h-14 w-auto object-contain">
+                    <!--<span class="text-lg font-bold text-[#0D0F1C] tracking-tight">Ushine</span>-->
                 </div>
 
                 <!-- Navigation Links -->
@@ -28,14 +24,28 @@
 
                 <!-- Buttons -->
                 <div class="flex items-center gap-2">
-                    <a href="{{ route('register') }}" 
-                       class="h-10 px-4 bg-[#607AFB] rounded-xl flex items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                        <span class="text-sm font-bold text-white tracking-wide">Register</span>
-                    </a>
-                    <a href="{{ route('login') }}" 
-                       class="h-10 px-4 bg-[#E6E9F4] rounded-xl flex items-center justify-center hover:bg-[#D9DEEB] transition-colors">
-                        <span class="text-sm font-bold text-[#0D0F1C] tracking-wide">Login</span>
-                    </a>
+                    @auth
+                        <a href="{{ route('homepage') }}" 
+                           class="h-10 px-4 bg-[#607AFB] rounded-xl flex items-center justify-center hover:bg-[#4F64D9] transition-colors">
+                            <span class="text-sm font-bold text-white tracking-wide">Homepage</span>
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                            @csrf
+                            <button type="submit" 
+                               class="h-10 px-4 bg-[#E6E9F4] rounded-xl flex items-center justify-center hover:bg-[#D9DEEB] transition-colors cursor-pointer">
+                                <span class="text-sm font-bold text-[#0D0F1C] tracking-wide">Logout</span>
+                            </button>
+                        </form>
+                    @else
+                        <a href="{{ route('register') }}" 
+                           class="h-10 px-4 bg-[#607AFB] rounded-xl flex items-center justify-center hover:bg-[#4F64D9] transition-colors">
+                            <span class="text-sm font-bold text-white tracking-wide">Register</span>
+                        </a>
+                        <a href="{{ route('login') }}" 
+                           class="h-10 px-4 bg-[#E6E9F4] rounded-xl flex items-center justify-center hover:bg-[#D9DEEB] transition-colors">
+                            <span class="text-sm font-bold text-[#0D0F1C] tracking-wide">Login</span>
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -52,16 +62,23 @@
                 <div class="relative h-full flex items-center justify-center text-center px-8">
                     <div class="max-w-3xl">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-                            Unleash Your Potential, Connect with Sponsors
+                            Unleash Your Potential
                         </h1>
                         <p class="mt-4 text-base md:text-lg text-white leading-relaxed">
                             Ushine is a social crowdfunding platform designed to empower emerging talents. Share your passion, connect with sponsors, and embark on a journey of growth and collaboration.
                         </p>
                         <div class="mt-8">
-                            <a href="{{ route('register') }}" 
-                               class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                                <span class="text-base font-bold text-white tracking-wide">Start Your Journey</span>
-                            </a>
+                            @auth
+                                <a href="{{ route('homepage') }}" 
+                                   class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
+                                    <span class="text-base font-bold text-white tracking-wide">Go to Homepage</span>
+                                </a>
+                            @else
+                                <a href="{{ route('register') }}" 
+                                   class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
+                                    <span class="text-base font-bold text-white tracking-wide">Start Your Journey</span>
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -203,10 +220,17 @@
             <h2 class="text-3xl md:text-4xl font-bold text-[#0D0F1C] tracking-tight mb-8">
                 Ready to Shine? Join Our Community
             </h2>
-            <a href="{{ route('register') }}" 
-               class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                <span class="text-base font-bold text-white tracking-wide">Join Ushine Today</span>
-            </a>
+            @auth
+                <a href="{{ route('homepage') }}" 
+                   class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
+                    <span class="text-base font-bold text-white tracking-wide">Go to Homepage</span>
+                </a>
+            @else
+                <a href="{{ route('register') }}" 
+                   class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
+                    <span class="text-base font-bold text-white tracking-wide">Join Ushine Today</span>
+                </a>
+            @endauth
         </div>
     </section>
 

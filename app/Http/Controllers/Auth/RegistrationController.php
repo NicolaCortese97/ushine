@@ -26,9 +26,13 @@ class RegistrationController extends Controller
             'name'      => ['required', 'string', 'max:255'],      // Cambiato da 'nome'
             'cognome'   => ['required', 'string', 'max:100'],
             'email'     => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'telefono'  => ['required', 'string', 'max:20'],
+            'prefisso_internazionale' => ['required', 'string', 'max:5'],
             'password'  => ['required', 'confirmed', Rules\Password::defaults()],
             'tipo_utente' => ['required', 'in:Guest,Talent,Sponsor,Visitatore'],
             'accetta_termini' => ['required', 'accepted'],         // Aggiunto
+            'categories' => ['nullable', 'array'],
+            'categories.*' => ['exists:categories,id'],
         ]);
 
         // Creazione dell'utente con campi standard Laravel
@@ -36,6 +40,8 @@ class RegistrationController extends Controller
             'name'          => $request->name,                    // Cambiato da 'nome'
             'cognome'       => $request->cognome,
             'email'         => $request->email,
+            'telefono'      => $request->telefono,
+            'prefisso_internazionale' => $request->prefisso_internazionale,
             'password'      => Hash::make($request->password),    // Cambiato da 'password_hash'
             'tipo_utente'   => $request->tipo_utente,
             'lingua_preferita' => 'IT',
@@ -48,6 +54,10 @@ class RegistrationController extends Controller
             'level' => 1,
             'rank' => '#1',
         ]);
+
+        if ($request->has('categories')) {
+            $user->categories()->sync($request->categories);
+        }
 
         event(new Registered($user));
         Auth::login($user);

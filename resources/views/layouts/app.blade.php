@@ -9,6 +9,8 @@
 
     <title>Ushine</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('images/logoushine.png') }}" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,16 +40,8 @@
         <!-- Header -->
         @include('layouts.header')
 
-        @if(request()->routeIs('homepage'))
-            <!-- Sidebar -->
-            @include('layouts.sidebar')
-            
-            <!-- Layout Container -->
-            <div class="lg:ps-75 flex grow flex-col">
-        @else
-            <!-- Layout Container -->
-            <div class="flex grow flex-col">
-        @endif
+        <!-- Layout Container -->
+        <div class="flex grow flex-col">
             <!-- Content -->
             <main class="mx-auto w-full max-w-[1280px] flex-1 grow space-y-6 p-6">
                 @yield('content')
