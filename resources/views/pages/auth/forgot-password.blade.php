@@ -13,8 +13,8 @@
                 </a>
             </div>
             <div>
-                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">Forgot your password?</h3>
-                <p class="text-base-content/80">Enter your email address and we'll send you a link to reset your password.</p>
+                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">{{ __('Forgot your password?') }}</h3>
+                <p class="text-base-content/80">{{ __("Enter your email address and we'll send you a link to reset your password.") }}</p>
             </div>
 
             @session('status')
@@ -32,12 +32,12 @@
             <form method="POST" action="{{ route('password.email') }}" class="space-y-4">
                 @csrf
                 <div>
-                    <label class="label-text" for="email">Email</label>
+                    <label class="label-text" for="email">{{ __('Email') }}</label>
                     <input type="email" 
                            name="email" 
                            id="email"
                            class="input @error('email') input-error @enderror" 
-                           placeholder="Enter your email address"
+                           placeholder="{{ __('Enter your email address') }}"
                            value="{{ old('email') }}"
                            required>
                     @error('email')
@@ -45,12 +45,12 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-gradient btn-block">Send reset link</button>
+                <button type="submit" class="btn btn-primary btn-gradient btn-block">{{ __('Send reset link') }}</button>
             </form>
 
             <p class="text-base-content/80 text-center">
-                Remember your password? 
-                <a href="{{ route('login') }}" class="link link-animated link-primary font-normal">Sign in</a>
+                {{ __('Remember your password?') }} 
+                <a href="{{ route('login') }}" class="link link-animated link-primary font-normal">{{ __('Sign in') }}</a>
             </p>
         </div>
     </div>

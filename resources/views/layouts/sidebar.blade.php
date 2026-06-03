@@ -28,7 +28,7 @@
                     <li>
                         <a href="{{ route('profileInfo') }}" @class(['inline-flex w-full items-center px-2', 'menu-active' => request()->routeIs('profileInfo')])>
                             <span class="icon-[tabler--dashboard] size-4.5"></span>
-                            <span class="grow">Profile Info</span>
+                            <span class="grow">{{ __('Profile Info') }}</span>
                         </a>
                     </li>
                     <li>
@@ -39,14 +39,14 @@
                                 <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
                                 <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
                             </svg>
-                            <span class="grow">Homepage</span>
+                            <span class="grow">{{ __('Homepage') }}</span>
                         </a>
                     </li>
 
                     <!-- Section Divider -->
                     <li
                         class="text-base-content/50 before:bg-base-content/20 mt-2 p-2 text-xs uppercase before:absolute before:-start-3 before:top-1/2 before:h-0.5 before:w-2.5">
-                        Pages</li>
+                        {{ __('Pages') }}</li>
 
                     <!-- User Management Menu -->
                     <li @class(['accordion-item', 'active' => request()->routeIs('users.*')]) id="user-management">
@@ -54,7 +54,7 @@
                             class="accordion-toggle accordion-item-active:bg-neutral/10 inline-flex w-full items-center p-2 text-start text-sm font-normal"
                             aria-controls="user-management-collapse-user-management" aria-expanded="true">
                             <span class="icon-[tabler--users] size-4.5"></span>
-                            <span class="grow">User Management</span>
+                            <span class="grow">{{ __('User Management') }}</span>
                             <span
                                 class="icon-[tabler--chevron-right] accordion-item-active:rotate-90 size-4.5 shrink-0 transition-transform duration-300 rtl:rotate-180"></span>
                         </button>
@@ -64,7 +64,7 @@
                             <ul class="space-y-1">
                                 <li>
                                     <a href="{{ route('users.index') }}" @class(['inline-flex w-full items-center px-2', 'menu-active' => request()->routeIs('users.index')])>
-                                        <span>Users</span>
+                                        <span>{{ __('Users') }}</span>
                                     </a>
                                 </li>
                             </ul>

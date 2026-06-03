@@ -13,7 +13,7 @@
                 </a>
             </div>
             <div>
-                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">Create your account</h3>
+                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">{{ __('Create your account') }}</h3>
             </div>
 
             @if($errors->any())
@@ -28,12 +28,12 @@
                 @csrf
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="label-text" for="name">Name*</label>
+                        <label class="label-text" for="name">{{ __('Name*') }}</label>
                         <input type="text" 
                                name="name" 
                                id="name"
                                class="input @error('name') input-error @enderror" 
-                               placeholder="Enter your name"
+                               placeholder="{{ __('Enter your name') }}"
                                value="{{ old('name') }}"
                                required>
                         @error('name')
@@ -41,12 +41,12 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="label-text" for="cognome">Last Name*</label>
+                        <label class="label-text" for="cognome">{{ __('Last Name*') }}</label>
                         <input type="text" 
                                name="cognome" 
                                id="cognome"
                                class="input @error('cognome') input-error @enderror" 
-                               placeholder="Enter your last name"
+                               placeholder="{{ __('Enter your last name') }}"
                                value="{{ old('cognome') }}"
                                required>
                         @error('cognome')
@@ -56,12 +56,12 @@
                 </div>
 
                 <div>
-                    <label class="label-text" for="email">Email*</label>
+                    <label class="label-text" for="email">{{ __('Email*') }}</label>
                     <input type="email" 
                            name="email" 
                            id="email"
                            class="input @error('email') input-error @enderror" 
-                           placeholder="Enter your email"
+                           placeholder="{{ __('Enter your email') }}"
                            value="{{ old('email') }}"
                            required>
                     @error('email')
@@ -70,7 +70,7 @@
                 </div>
 
                 <div>
-                    <label class="label-text block mb-1.5" for="telefono">Phone Number*</label>
+                    <label class="label-text block mb-1.5" for="telefono">{{ __('Phone Number*') }}</label>
                     <div class="phone-input-group flex items-center bg-base-100 overflow-hidden">
                         <select name="prefisso_internazionale" class="phone-prefix-select bg-transparent outline-none cursor-pointer shrink-0">
                             <option value="+39" {{ old('prefisso_internazionale', '+39') == '+39' ? 'selected' : '' }}>🇮🇹 +39</option>
@@ -85,7 +85,7 @@
                                name="telefono" 
                                id="telefono"
                                class="phone-number-input flex-1 bg-transparent outline-none" 
-                               placeholder="Enter your phone number"
+                               placeholder="{{ __('Enter your phone number') }}"
                                value="{{ old('telefono') }}"
                                required>
                     </div>
@@ -96,9 +96,9 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="label-text" for="password">Password*</label>
+                        <label class="label-text" for="password">{{ __('Password*') }}</label>
                         <div class="input @error('password') input-error @enderror">
-                            <input id="password" name="password" type="password" placeholder="Enter your password" required>
+                            <input id="password" name="password" type="password" placeholder="{{ __('Enter your password') }}" required>
                             <button type="button" data-toggle-password='{ "target": "#password" }' class="block cursor-pointer">
                                 <span class="icon-[tabler--eye] password-active:block hidden size-5 shrink-0"></span>
                                 <span class="icon-[tabler--eye-off] password-active:hidden block size-5 shrink-0"></span>
@@ -109,9 +109,9 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="label-text" for="password_confirmation">Confirm Password*</label>
+                        <label class="label-text" for="password_confirmation">{{ __('Confirm Password*') }}</label>
                         <div class="input">
-                            <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm your password" required>
+                            <input id="password_confirmation" name="password_confirmation" type="password" placeholder="{{ __('Confirm your password') }}" required>
                             <button type="button" data-toggle-password='{ "target": "#password_confirmation" }' class="block cursor-pointer">
                                 <span class="icon-[tabler--eye] password-active:block hidden size-5 shrink-0"></span>
                                 <span class="icon-[tabler--eye-off] password-active:hidden block size-5 shrink-0"></span>
@@ -123,7 +123,7 @@
                 <!-- Password Strength Indicator -->
                 <div id="passwordStrengthContainer" class="hidden">
                     <div class="flex justify-between items-center">
-                        <small class="text-base-content/60">Password strength:</small>
+                        <small class="text-base-content/60">{{ __('Password strength:') }}</small>
                         <small id="strengthText" class="font-semibold"></small>
                     </div>
                     <div class="h-1 bg-base-200 rounded-full mt-1 overflow-hidden">
@@ -133,7 +133,7 @@
 
                 <!-- Categories Selector -->
                 <div>
-                    <label class="label-text mb-2.5 block" for="categories">What are your interests / categories?*</label>
+                    <label class="label-text mb-2.5 block" for="categories">{{ __('What are your interests / categories?*') }}</label>
                     <div class="flex flex-wrap gap-2.5">
                         @php
                             $allCategories = \App\Models\Category::all();
@@ -157,14 +157,14 @@
 
                 <!-- User Type Selector (come in Flutter) -->
                 <div>
-                    <label class="label-text block mb-2">Account type</label>
+                    <label class="label-text block mb-2">{{ __('Account type') }}</label>
                     <div class="flex gap-3">
                         <button type="button" 
                                 class="user-type-option @if(old('tipo_utente', 'Talent') == 'Talent') active @endif"
-                                data-type="Talent">Talent</button>
+                                data-type="Talent">{{ __('Talent') }}</button>
                         <button type="button" 
                                 class="user-type-option @if(old('tipo_utente') == 'Sponsor') active @endif"
-                                data-type="Sponsor">Sponsor</button>
+                                data-type="Sponsor">{{ __('Sponsor') }}</button>
                     </div>
                     <input type="hidden" name="tipo_utente" id="tipo_utente" value="{{ old('tipo_utente', 'Talent') }}">
                 </div>
@@ -172,16 +172,16 @@
                 <div class="flex items-center gap-2">
                     <input type="checkbox" class="checkbox checkbox-primary checkbox-sm" id="accetta_termini" name="accetta_termini" value="1" required>
                     <label class="label-text text-base-content/80 text-sm" for="accetta_termini">
-                        I accept the <a href="#" class="link link-primary">Terms and Conditions</a>
+                        {{ __('I accept the') }} <a href="{{ route('terms') }}" class="link link-primary" id="terms_conditions_link">{{ __('Terms and Conditions') }}</a>
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-gradient btn-block" id="registerBtn">Create Account</button>
+                <button type="submit" class="btn btn-primary btn-gradient btn-block" id="registerBtn">{{ __('Create Account') }}</button>
             </form>
 
             <p class="text-base-content/80 text-center">
-                Already have an account? 
-                <a href="{{ route('login') }}" class="link link-animated link-primary font-normal">Sign in</a>
+                {{ __('Already have an account?') }} 
+                <a href="{{ route('login') }}" class="link link-animated link-primary font-normal">{{ __('Sign in') }}</a>
             </p>
         </div>
     </div>
@@ -203,10 +203,10 @@ function checkPasswordStrength(password) {
     if (/[0-9]/.test(password)) score++;
     if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) score++;
     
-    if (score <= 2) return { text: 'Weak', color: '#DC3545', width: '25%' };
-    if (score <= 3) return { text: 'Fair', color: '#FFC107', width: '50%' };
-    if (score <= 4) return { text: 'Good', color: '#0DCAF0', width: '75%' };
-    return { text: 'Strong', color: '#198754', width: '100%' };
+    if (score <= 2) return { text: "{{ __('Weak') }}", color: '#DC3545', width: '25%' };
+    if (score <= 3) return { text: "{{ __('Fair') }}", color: '#FFC107', width: '50%' };
+    if (score <= 4) return { text: "{{ __('Good') }}", color: '#0DCAF0', width: '75%' };
+    return { text: "{{ __('Strong') }}", color: '#198754', width: '100%' };
 }
 
 passwordInput.addEventListener('input', function() {
@@ -232,12 +232,85 @@ document.querySelectorAll('.user-type-option').forEach(btn => {
 });
 
 // Form submission loading state
-document.getElementById('registerBtn')?.addEventListener('click', function(e) {
-    const form = this.closest('form');
-    if (form && form.checkValidity()) {
-        this.disabled = true;
-        this.innerHTML = '<span class="loading loading-spinner loading-sm mr-2"></span>Creating account...';
+let isSubmitting = false;
+document.getElementById('registerForm')?.addEventListener('submit', function(e) {
+    if (isSubmitting) {
+        e.preventDefault();
+        return;
     }
+    isSubmitting = true;
+    const btn = document.getElementById('registerBtn');
+    if (btn) {
+        btn.innerHTML = '<span class="loading loading-spinner loading-sm mr-2"></span>' + "{{ __('Creating account...') }}";
+        btn.classList.add('pointer-events-none');
+    }
+});
+
+// URL query accepted check & SessionStorage form restore
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if there is saved form data to restore
+    const savedDataStr = sessionStorage.getItem('signup_form_data');
+    if (savedDataStr) {
+        try {
+            const data = JSON.parse(savedDataStr);
+            if (document.getElementById('name')) document.getElementById('name').value = data.name || '';
+            if (document.getElementById('cognome')) document.getElementById('cognome').value = data.cognome || '';
+            if (document.getElementById('email')) document.getElementById('email').value = data.email || '';
+            if (document.getElementsByName('prefisso_internazionale')[0]) {
+                document.getElementsByName('prefisso_internazionale')[0].value = data.prefisso_internazionale || '+39';
+            }
+            if (document.getElementById('telefono')) document.getElementById('telefono').value = data.telefono || '';
+            
+            // Restore user type selection
+            if (document.getElementById('tipo_utente') && data.tipo_utente) {
+                document.getElementById('tipo_utente').value = data.tipo_utente;
+                document.querySelectorAll('.user-type-option').forEach(btn => {
+                    if (btn.dataset.type === data.tipo_utente) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Restore categories checkboxes
+            if (data.categories && Array.isArray(data.categories)) {
+                document.querySelectorAll('.category-checkbox').forEach(checkbox => {
+                    if (data.categories.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    } else {
+                        checkbox.checked = false;
+                    }
+                });
+            }
+        } catch (e) {
+            console.error("Errore nel ripristino dei dati di registrazione:", e);
+        }
+        // Clean up sessionStorage after successful restoration
+        sessionStorage.removeItem('signup_form_data');
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('accepted')) {
+        const checkbox = document.getElementById('accetta_termini');
+        if (checkbox) {
+            checkbox.checked = true;
+        }
+    }
+});
+
+// Form state saver on Terms click (Same tab state preservation)
+document.getElementById('terms_conditions_link')?.addEventListener('click', function() {
+    const data = {
+        name: document.getElementById('name')?.value || '',
+        cognome: document.getElementById('cognome')?.value || '',
+        email: document.getElementById('email')?.value || '',
+        prefisso_internazionale: document.getElementsByName('prefisso_internazionale')[0]?.value || '+39',
+        telefono: document.getElementById('telefono')?.value || '',
+        tipo_utente: document.getElementById('tipo_utente')?.value || 'Talent',
+        categories: Array.from(document.querySelectorAll('.category-checkbox:checked')).map(el => el.value)
+    };
+    sessionStorage.setItem('signup_form_data', JSON.stringify(data));
 });
 </script>
 

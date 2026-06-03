@@ -40,6 +40,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/notifications', function () {
         return view('pages.auth.settings.notifications');
     })->name('settings.notifications');
+
+    Route::get('settings/privacy', function () {
+        return view('pages.auth.settings.privacy');
+    })->name('settings.privacy');
+
+    Route::get('settings/support', function () {
+        return view('pages.auth.settings.support');
+    })->name('settings.support');
     
     Route::get('settings/profile', [Settings\ProfileController::class, 'edit'])->name('settings.profile.edit');
     Route::put('settings/profile', [Settings\ProfileController::class, 'update'])->name('settings.profile.update');

@@ -13,8 +13,8 @@
                 </a>
             </div>
             <div>
-                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">Welcome back</h3>
-                <p class="text-base-content/80">Sign in to your account</p>
+                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">{{ __('Welcome back') }}</h3>
+                <p class="text-base-content/80">{{ __('Sign in to your account') }}</p>
             </div>
 
             @if($errors->any())
@@ -28,12 +28,12 @@
             <form method="POST" action="{{ route('login') }}" class="space-y-4">
                 @csrf
                 <div>
-                    <label class="label-text" for="email">Email</label>
+                    <label class="label-text" for="email">{{ __('Email') }}</label>
                     <input type="email" 
                            name="email" 
                            id="email"
                            class="input @error('email') input-error @enderror" 
-                           placeholder="Enter your email"
+                           placeholder="{{ __('Enter your email') }}"
                            value="{{ old('email') }}"
                            required>
                     @error('email')
@@ -42,9 +42,9 @@
                 </div>
 
                 <div>
-                    <label class="label-text" for="password">Password</label>
+                    <label class="label-text" for="password">{{ __('Password') }}</label>
                     <div class="input @error('password') input-error @enderror">
-                        <input id="password" name="password" type="password" placeholder="Enter your password" required>
+                        <input id="password" name="password" type="password" placeholder="{{ __('Enter your password') }}" required>
                         <button type="button" data-toggle-password='{ "target": "#password" }' class="block cursor-pointer">
                             <span class="icon-[tabler--eye] password-active:block hidden size-5 shrink-0"></span>
                             <span class="icon-[tabler--eye-off] password-active:hidden block size-5 shrink-0"></span>
@@ -56,15 +56,15 @@
                 </div>
 
                 <div class="text-end">
-                    <a href="{{ route('password.request') }}" class="text-primary text-sm">Forgot password?</a>
+                    <a href="{{ route('password.request') }}" class="text-primary text-sm">{{ __('Forgot password?') }}</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-gradient btn-block">Sign in</button>
+                <button type="submit" class="btn btn-primary btn-gradient btn-block">{{ __('Sign in') }}</button>
             </form>
 
             <p class="text-base-content/80 text-center">
-                Don't have an account? 
-                <a href="{{ route('register') }}" class="link link-animated link-primary font-normal">Sign up</a>
+                {{ __("Don't have an account?") }} 
+                <a href="{{ route('register') }}" class="link link-animated link-primary font-normal">{{ __('Sign up') }}</a>
             </p>
         </div>
     </div>

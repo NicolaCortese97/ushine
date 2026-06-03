@@ -14,6 +14,10 @@ class PostController extends Controller
                     ->latest()
                     ->get();
 
+        if (auth()->user() && auth()->user()->tipo_utente === 'Sponsor') {
+            return view('pages.sponsor_homepage', compact('posts'));
+        }
+
         return view('pages.homepage', compact('posts'));
     }
 

@@ -8,29 +8,29 @@
 <div class="space-y-6">
     <!-- Welcome Section -->
     <div>
-        <h1 class="text-2xl md:text-3xl font-bold">Welcome back, {{ $user->name }}!</h1>
-        <p class="text-base-content/60 mt-1">You are a {{ strtoupper($user->tipo_utente ?? 'Talent') }}</p>
+        <h1 class="text-2xl md:text-3xl font-bold">{{ __('Welcome back, :name!', ['name' => $user->name]) }}</h1>
+        <p class="text-base-content/60 mt-1">{{ __('You are a') }} {{ strtoupper($user->tipo_utente ?? 'Talent') }}</p>
     </div>
 
         <!-- User Info Card / Profile Information -->
     <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
-            <h2 class="card-title text-lg">Contacts</h2>
+            <h2 class="card-title text-lg">{{ __('Contacts') }}</h2>
             <div class="space-y-2 mt-4">
                 <!-- <div class="flex flex-wrap">
                     <div class="w-24 font-semibold text-base-content/60">Name:</div>
                     <div>{{ $user->name }} {{ $user->cognome }}</div>
                 </div> -->
                 <div class="flex flex-wrap">
-                    <div class="w-24 font-semibold text-base-content/60">Email:</div>
+                    <div class="w-24 font-semibold text-base-content/60">{{ __('Email:') }}</div>
                     <div>{{ $user->email }}</div>
                 </div>
                 <div class="flex flex-wrap">
-                    <div class="w-24 font-semibold text-base-content/60">Phone:</div>
+                    <div class="w-24 font-semibold text-base-content/60">{{ __('Phone:') }}</div>
                     <div>{{ $user->prefisso_internazionale ?? '' }}{{ $user->telefono }}</div>
                 </div>
                 <div class="flex flex-wrap">
-                    <div class="w-24 font-semibold text-base-content/60">Joined:</div>
+                    <div class="w-24 font-semibold text-base-content/60">{{ __('Joined:') }}</div>
                     <div>{{ $user->created_at->format('d/m/Y') }}</div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div>
                     <h3 class="font-semibold">{{ $user->name }} {{ $user->cognome }}</h3>
-                    <p class="text-xs text-base-content/50">Bio personale</p>
+                    <p class="text-xs text-base-content/50">{{ __('Personal Bio') }}</p>
                 </div>
             </div>
             <div class="mt-3 prose prose-sm max-w-none bio-html-content">
@@ -66,7 +66,7 @@
 
     <!-- Statistics Section (XP, Rank, Level - in riquadri separati orizzontali) -->
     <div>
-        <h2 class="text-lg font-bold mb-4">Statistics</h2>
+        <h2 class="text-lg font-bold mb-4">{{ __('Statistics') }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- XP Points Card -->
             <div class="card bg-base-100 shadow-xl text-center">
@@ -74,9 +74,9 @@
                     <div class="flex justify-center mb-2">
                         <i class="fas fa-star text-4xl text-primary"></i>
                     </div>
-                    <h3 class="text-sm font-semibold text-base-content/60 uppercase tracking-wide">XP Points</h3>
+                    <h3 class="text-sm font-semibold text-base-content/60 uppercase tracking-wide">{{ __('XP Points') }}</h3>
                     <p class="text-3xl font-bold text-primary">{{ $user->xp_points ?? 0 }}</p>
-                    <p class="text-xs text-base-content/50">Total earned points</p>
+                    <p class="text-xs text-base-content/50">{{ __('Total earned points') }}</p>
                 </div>
             </div>
             
@@ -86,9 +86,9 @@
                     <div class="flex justify-center mb-2">
                         <i class="fas fa-trophy text-4xl text-secondary"></i>
                     </div>
-                    <h3 class="text-sm font-semibold text-base-content/60 uppercase tracking-wide">Rank</h3>
+                    <h3 class="text-sm font-semibold text-base-content/60 uppercase tracking-wide">{{ __('Rank') }}</h3>
                     <p class="text-3xl font-bold text-secondary">{{ $user->rank ?? '#1' }}</p>
-                    <p class="text-xs text-base-content/50">Global position</p>
+                    <p class="text-xs text-base-content/50">{{ __('Global position') }}</p>
                 </div>
             </div>
             
@@ -98,9 +98,9 @@
                     <div class="flex justify-center mb-2">
                         <i class="fas fa-chart-line text-4xl text-info"></i>
                     </div>
-                    <h3 class="text-sm font-semibold text-base-content/60 uppercase tracking-wide">Level</h3>
+                    <h3 class="text-sm font-semibold text-base-content/60 uppercase tracking-wide">{{ __('Level') }}</h3>
                     <p class="text-3xl font-bold text-info">{{ $user->level ?? 1 }}</p>
-                    <p class="text-xs text-base-content/50">Current level</p>
+                    <p class="text-xs text-base-content/50">{{ __('Current level') }}</p>
                 </div>
             </div>
         </div>

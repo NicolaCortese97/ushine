@@ -12,6 +12,8 @@ test('new users can register', function () {
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
+        'telefono' => '1234567890',               // AGGIUNTO
+        'prefisso_internazionale' => '+39',      // AGGIUNTO
         'tipo_utente' => 'Visitatore',            // AGGIUNTO (o 'Guest')
         'accetta_termini' => true,                // AGGIUNTO
     ]);

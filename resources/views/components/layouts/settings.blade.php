@@ -6,6 +6,9 @@
     <a href="{{ route('settings.password.edit') }}"
        class="btn {{ request()->routeIs('settings.password.*') ? 'btn-primary' : 'btn-text hover:text-bg-soft-primary focus:text-bg-soft-primary focus:outline-primary' }}">
         <span class="icon-[tabler--lock] size-5 shrink-0"></span> <span class="hidden sm:inline">Password</span> </a>
+    <a href="{{ route('settings.privacy') }}"
+       class="btn {{ request()->routeIs('settings.privacy') ? 'btn-primary' : 'btn-text hover:text-bg-soft-primary focus:text-bg-soft-primary focus:outline-primary' }}">
+        <span class="icon-[tabler--shield-lock] size-5 shrink-0"></span> <span class="hidden sm:inline">Privacy & Security</span> </a>
 </div>
 <!--/ Navbar pills -->
 

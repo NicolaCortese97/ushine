@@ -39,6 +39,15 @@ class ProfileController extends Controller
         $user->cognome = $validated['cognome'];
         $user->bio = $validated['bio'] ?? null;
         $user->lingua = $validated['lingua'] ?? null;
+        if ($user->lingua) {
+            $localeMap = [
+                'Italiano' => 'it',
+                'English' => 'en',
+            ];
+            if (isset($localeMap[$user->lingua])) {
+                session()->put('locale', $localeMap[$user->lingua]);
+            }
+        }
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;

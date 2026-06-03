@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" data-theme="light" dir="ltr" class="scroll-smooth">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light" dir="ltr" class="scroll-smooth">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -15,6 +15,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&ampdisplay=swap" rel="stylesheet" />
 
     @vite('resources/css/app.css')
+
+    <!-- Theme Script -->
+    <script type="text/javascript">
+        (function() {
+            try {
+                const root = document.documentElement;
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                root.setAttribute('data-theme', savedTheme);
+                if (savedTheme === 'dark') {
+                    root.classList.add('dark');
+                } else {
+                    root.classList.remove('dark');
+                }
+            } catch (e) {
+                console.warn('Early theme script error:', e);
+            }
+        })();
+    </script>
 
     @stack('styles')
 </head>

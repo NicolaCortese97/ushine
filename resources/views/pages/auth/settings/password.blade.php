@@ -7,7 +7,7 @@
                 <svg class="size-5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
                 </svg>
-                <span>Password updated successfully</span>
+                <span>{{ __('Password updated successfully') }}</span>
             </div>
         @endif
 
@@ -18,14 +18,14 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <!-- Current Password Input -->
                 <div class="md:col-span-2">
-                    <label class="label-text" for="current_password">Current Password</label>
+                    <label class="label-text" for="current_password">{{ __('Current Password') }}</label>
                     <div x-data="{ showPassword: false }" class="relative">
                         <input
                             :type="showPassword ? 'text' : 'password'"
                             id="current_password"
                             name="current_password"
                             class="input pr-11"
-                            placeholder="Enter your current password"
+                            placeholder="{{ __('Enter your current password') }}"
                             required
                         />
                         <span @click="showPassword = !showPassword"
@@ -41,14 +41,14 @@
 
                 <!-- New Password Input -->
                 <div>
-                    <label class="label-text" for="password">New Password</label>
+                    <label class="label-text" for="password">{{ __('New Password') }}</label>
                     <div x-data="{ showPassword: false }" class="relative">
                         <input
                             :type="showPassword ? 'text' : 'password'"
                             id="password"
                             name="password"
                             class="input pr-11"
-                            placeholder="Enter your new password"
+                            placeholder="{{ __('Enter your new password') }}"
                             required
                         />
                         <span @click="showPassword = !showPassword"
@@ -64,14 +64,14 @@
 
                 <!-- Confirm Password Input -->
                 <div>
-                    <label class="label-text" for="password_confirmation">Confirm Password</label>
+                    <label class="label-text" for="password_confirmation">{{ __('Confirm Password') }}</label>
                     <div x-data="{ showPassword: false }" class="relative">
                         <input
                             :type="showPassword ? 'text' : 'password'"
                             id="password_confirmation"
                             name="password_confirmation"
                             class="input pr-11"
-                            placeholder="Confirm your new password"
+                            placeholder="{{ __('Confirm your new password') }}"
                             required
                         />
                         <span @click="showPassword = !showPassword"
@@ -85,8 +85,8 @@
 
             <!-- Submit Button -->
             <div class="flex gap-3">
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-                <button type="button" class="btn btn-soft btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">{{ __('Save Changes') }}</button>
+                <button type="button" class="btn btn-soft btn-secondary">{{ __('Cancel') }}</button>
             </div>
         </form>
     </x-layouts.settings>

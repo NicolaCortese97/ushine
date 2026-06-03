@@ -11,7 +11,7 @@
             <div class="navbar-end items-center gap-4">
                 <!-- Header Search Bar -->
                 <form id="header-search-form" action="{{ route('talents.index') }}" method="GET" class="relative hidden sm:flex items-center" style="transition: all 0.3s ease-in-out;">
-                    <input type="text" name="q" id="header-search-input" value="{{ request('q') }}" placeholder="Search talents..."
+                    <input type="text" name="q" id="header-search-input" value="{{ request('q') }}" placeholder="{{ __('Search talents...') }}"
                         style="width: 180px; height: 36px; padding: 8px 12px 8px 34px; font-size: 13px; border-radius: 20px; border: 1px solid #d1d5db; background: #fafafa; color: #333; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);" />
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
                         style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;">
@@ -59,8 +59,8 @@
 
                 <!-- Notifications Center Dropdown -->
                 <style>
-                    /* Premium Round Bell Button (Facebook Style) */
-                    #notification-bell-btn {
+                    /* Premium Round Bell & Leaderboard Buttons (Facebook Style) */
+                    #notification-bell-btn, #leaderboard-btn {
                         width: 40px !important;
                         height: 40px !important;
                         border-radius: 50% !important;
@@ -75,15 +75,15 @@
                         position: relative !important;
                         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
                     }
-                    #notification-bell-btn svg {
+                    #notification-bell-btn svg, #leaderboard-btn svg {
                         color: #050505 !important;
                         transition: color 0.2s ease !important;
                     }
-                    #notification-bell-btn:hover {
+                    #notification-bell-btn:hover, #leaderboard-btn:hover {
                         background: #e4e6eb !important;
                         transform: scale(1.05);
                     }
-                    #notification-bell-btn:hover svg {
+                    #notification-bell-btn:hover svg, #leaderboard-btn:hover svg {
                         color: #1877f2 !important;
                     }
                     #notification-bell-btn.active-bell {
@@ -419,6 +419,48 @@
                     }
                 </style>
 
+                <!-- Language Selector Dropdown -->
+                <div class="dropdown relative inline-flex [--offset:15] z-50">
+                    <button id="language-dropdown" type="button" class="dropdown-toggle flex items-center p-0 overflow-hidden border border-base-content/20 rounded-md focus:outline-none transition-all duration-200 bg-base-100 hover:bg-base-200" aria-haspopup="menu" aria-expanded="false" style="height: 36px;">
+                        <!-- Left Section (Initials) -->
+                        <span class="px-3 flex items-center justify-center font-bold text-sm text-base-content h-full">
+                            @if(app()->getLocale() === 'it')
+                                ITA
+                            @else
+                                ENG
+                            @endif
+                        </span>
+                        <!-- Vertical Divider -->
+                        <span class="w-[1px] bg-base-content/20 h-full"></span>
+                        <!-- Right Section (Arrow Box) -->
+                        <span class="px-2.5 flex items-center justify-center bg-base-200 hover:bg-base-300 h-full text-base-content/70">
+                            <span class="icon-[tabler--chevron-down] size-3.5"></span>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-open:opacity-100 w-32 hidden space-y-0.5" role="menu"
+                        aria-orientation="vertical" aria-labelledby="language-dropdown">
+                        <li>
+                            <a class="dropdown-item px-3 py-2 flex items-center gap-2 {{ app()->getLocale() === 'it' ? 'bg-base-200 font-semibold' : '' }}" href="{{ route('lang.switch', 'it') }}">
+                                <span class="text-base">🇮🇹</span>
+                                <span class="text-sm">Italiano</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item px-3 py-2 flex items-center gap-2 {{ app()->getLocale() === 'en' ? 'bg-base-200 font-semibold' : '' }}" href="{{ route('lang.switch', 'en') }}">
+                                <span class="text-base">🇬🇧</span>
+                                <span class="text-sm">English</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Leaderboard Crown Button -->
+                <a href="{{ route('leaderboard') }}" id="leaderboard-btn" aria-label="Leaderboard" style="text-decoration: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+                    </svg>
+                </a>
+
                 <div class="relative inline-block" id="notification-dropdown-container">
                     <button id="notification-bell-btn" type="button" class="focus:outline-none" aria-label="Notifications">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -434,9 +476,9 @@
                         <!-- Panel Header -->
                         <div class="fb-header">
                             <div class="fb-header-top">
-                                <h3 class="fb-title">Notifications</h3>
+                                <h3 class="fb-title">{{ __('Notifications') }}</h3>
                                 <button id="mark-all-read-btn" type="button" class="fb-mark-read">
-                                    Mark all as read
+                                    {{ __('Mark all as read') }}
                                 </button>
                             </div>
                             
@@ -536,14 +578,14 @@
                                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                                 </svg>
                             </div>
-                            <h4 class="fb-empty-title">No notifications yet</h4>
-                            <p class="fb-empty-desc">We'll notify you when something interesting happens!</p>
+                            <h4 class="fb-empty-title">{{ __('No notifications yet') }}</h4>
+                            <p class="fb-empty-desc">{{ __("When you get notifications, they'll show up here.") }}</p>
                         </div>
                         
                         <!-- Panel Footer -->
                         <div class="fb-footer">
                             <a href="{{ route('settings.notifications') }}" class="fb-footer-link">
-                                See all in Settings
+                                {{ __('See all in Settings') }}
                             </a>
                         </div>
                     </div>
@@ -757,7 +799,7 @@
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                Settings
+                                {{ __('Settings') }}
                             </a>
                         </li>
                         <li class="dropdown-footer p-2 pt-1">
@@ -766,7 +808,7 @@
                                 <button type="submit"
                                     class="btn btn-text btn-error btn-block h-11 justify-start px-3 font-normal">
                                     <span class="icon-[tabler--logout] size-5"></span>
-                                    Logout
+                                    {{ __('Logout') }}
                                 </button>
                             </form>
                         </li>

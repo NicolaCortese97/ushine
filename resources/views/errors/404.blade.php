@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" data-theme="light" data-assets-path="{{ asset('flyonui-dashboard-free/assets/') }}" data-layout-path="dashboard-free/" dir="ltr" class="scroll-smooth">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light" data-assets-path="{{ asset('flyonui-dashboard-free/assets/') }}" data-layout-path="dashboard-free/" dir="ltr" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -186,9 +186,9 @@
           </span>
         </div>
         <div class="mt-24 text-center">
-          <h3 class="text-base-content mb-1.5 text-2xl font-semibold">Page Not Found ⚠️</h3>
-          <p class="text-base-content/80 mb-5">We couldn't find the page you are looking for</p>
-          <a href="{{ url('/') }}" class="btn btn-primary btn-gradient">Back to home page</a>
+          <h3 class="text-base-content mb-1.5 text-2xl font-semibold">{{ __('Page Not Found ⚠️') }}</h3>
+          <p class="text-base-content/80 mb-5">{{ __("We couldn't find the page you are looking for") }}</p>
+          <a href="{{ url('/') }}" class="btn btn-primary btn-gradient">{{ __('Back to home page') }}</a>
         </div>
       </div>
     </div>

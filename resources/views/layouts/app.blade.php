@@ -27,6 +27,11 @@
                 const root = document.documentElement;
                 const savedTheme = localStorage.getItem('theme') || 'light';
                 root.setAttribute('data-theme', savedTheme);
+                if (savedTheme === 'dark') {
+                    root.classList.add('dark');
+                } else {
+                    root.classList.remove('dark');
+                }
             } catch (e) {
                 console.warn('Early theme script error:', e);
             }
@@ -36,7 +41,7 @@
 
 <body>
     <!-- Layout wrapper -->
-    <div class="bg-white flex min-h-screen flex-col">
+    <div class="bg-white dark:bg-[#090a0f] flex min-h-screen flex-col">
         <!-- Header -->
         @include('layouts.header')
 

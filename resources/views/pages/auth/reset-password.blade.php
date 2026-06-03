@@ -13,8 +13,8 @@
                 </a>
             </div>
             <div>
-                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">Reset your password</h3>
-                <p class="text-base-content/80">Enter your new password below.</p>
+                <h3 class="text-base-content mb-1.5 text-2xl font-semibold">{{ __('Reset your password') }}</h3>
+                <p class="text-base-content/80">{{ __('Enter your new password below.') }}</p>
             </div>
 
             @if($errors->any())
@@ -30,7 +30,7 @@
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                 <div>
-                    <label class="label-text" for="email">Email</label>
+                    <label class="label-text" for="email">{{ __('Email') }}</label>
                     <input type="email" 
                            name="email" 
                            id="email"
@@ -40,9 +40,9 @@
                 </div>
 
                 <div>
-                    <label class="label-text" for="password">New Password</label>
+                    <label class="label-text" for="password">{{ __('New Password') }}</label>
                     <div class="input @error('password') input-error @enderror">
-                        <input id="password" name="password" type="password" placeholder="Enter your new password" required>
+                        <input id="password" name="password" type="password" placeholder="{{ __('Enter your new password') }}" required>
                         <button type="button" data-toggle-password='{ "target": "#password" }' class="block cursor-pointer">
                             <span class="icon-[tabler--eye] password-active:block hidden size-5 shrink-0"></span>
                             <span class="icon-[tabler--eye-off] password-active:hidden block size-5 shrink-0"></span>
@@ -54,9 +54,9 @@
                 </div>
 
                 <div>
-                    <label class="label-text" for="password_confirmation">Confirm New Password</label>
+                    <label class="label-text" for="password_confirmation">{{ __('Confirm New Password') }}</label>
                     <div class="input">
-                        <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm your new password" required>
+                        <input id="password_confirmation" name="password_confirmation" type="password" placeholder="{{ __('Confirm your new password') }}" required>
                         <button type="button" data-toggle-password='{ "target": "#password_confirmation" }' class="block cursor-pointer">
                             <span class="icon-[tabler--eye] password-active:block hidden size-5 shrink-0"></span>
                             <span class="icon-[tabler--eye-off] password-active:hidden block size-5 shrink-0"></span>
@@ -64,12 +64,12 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-gradient btn-block">Reset password</button>
+                <button type="submit" class="btn btn-primary btn-gradient btn-block">{{ __('Reset password') }}</button>
             </form>
 
             <p class="text-base-content/80 text-center">
-                Remember your password? 
-                <a href="{{ route('login') }}" class="link link-animated link-primary font-normal">Sign in</a>
+                {{ __('Remember your password?') }} 
+                <a href="{{ route('login') }}" class="link link-animated link-primary font-normal">{{ __('Sign in') }}</a>
             </p>
         </div>
     </div>

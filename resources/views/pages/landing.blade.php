@@ -16,10 +16,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center gap-9">
-                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">About</a>
-                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">How it Works</a>
-                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">Talents</a>
-                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">Sponsors</a>
+                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">{{ __('About') }}</a>
+                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">{{ __('How it Works') }}</a>
+                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">{{ __('Talents') }}</a>
+                    <a href="#" class="text-sm font-medium text-[#0D0F1C]">{{ __('Sponsors') }}</a>
                 </div>
 
                 <!-- Buttons -->
@@ -27,23 +27,23 @@
                     @auth
                         <a href="{{ route('homepage') }}" 
                            class="h-10 px-4 bg-[#607AFB] rounded-xl flex items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                            <span class="text-sm font-bold text-white tracking-wide">Homepage</span>
+                            <span class="text-sm font-bold text-white tracking-wide">{{ __('Homepage') }}</span>
                         </a>
                         <form method="POST" action="{{ route('logout') }}" class="inline">
                             @csrf
                             <button type="submit" 
                                class="h-10 px-4 bg-[#E6E9F4] rounded-xl flex items-center justify-center hover:bg-[#D9DEEB] transition-colors cursor-pointer">
-                                <span class="text-sm font-bold text-[#0D0F1C] tracking-wide">Logout</span>
+                                <span class="text-sm font-bold text-[#0D0F1C] tracking-wide">{{ __('Logout') }}</span>
                             </button>
                         </form>
                     @else
                         <a href="{{ route('register') }}" 
                            class="h-10 px-4 bg-[#607AFB] rounded-xl flex items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                            <span class="text-sm font-bold text-white tracking-wide">Register</span>
+                            <span class="text-sm font-bold text-white tracking-wide">{{ __('Register') }}</span>
                         </a>
                         <a href="{{ route('login') }}" 
                            class="h-10 px-4 bg-[#E6E9F4] rounded-xl flex items-center justify-center hover:bg-[#D9DEEB] transition-colors">
-                            <span class="text-sm font-bold text-[#0D0F1C] tracking-wide">Login</span>
+                            <span class="text-sm font-bold text-[#0D0F1C] tracking-wide">{{ __('Login') }}</span>
                         </a>
                     @endauth
                 </div>
@@ -62,21 +62,21 @@
                 <div class="relative h-full flex items-center justify-center text-center px-8">
                     <div class="max-w-3xl">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-                            Unleash Your Potential
+                            {{ __('Unleash Your Potential') }}
                         </h1>
                         <p class="mt-4 text-base md:text-lg text-white leading-relaxed">
-                            Ushine is a social crowdfunding platform designed to empower emerging talents. Share your passion, connect with sponsors, and embark on a journey of growth and collaboration.
+                            {{ __('Ushine is a social crowdfunding platform designed to empower emerging talents. Share your passion, connect with sponsors, and embark on a journey of growth and collaboration.') }}
                         </p>
                         <div class="mt-8">
                             @auth
                                 <a href="{{ route('homepage') }}" 
                                    class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                                    <span class="text-base font-bold text-white tracking-wide">Go to Homepage</span>
+                                    <span class="text-base font-bold text-white tracking-wide">{{ __('Go to Homepage') }}</span>
                                 </a>
                             @else
                                 <a href="{{ route('register') }}" 
                                    class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                                    <span class="text-base font-bold text-white tracking-wide">Start Your Journey</span>
+                                    <span class="text-base font-bold text-white tracking-wide">{{ __('Start Your Journey') }}</span>
                                 </a>
                             @endauth
                         </div>
@@ -90,13 +90,13 @@
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="max-w-6xl mx-auto">
             <div class="mb-4">
-                <span class="text-lg font-bold text-[#0D0F1C] tracking-tight">How Ushine Empowers You</span>
+                <span class="text-lg font-bold text-[#0D0F1C] tracking-tight">{{ __('How Ushine Empowers You') }}</span>
             </div>
             <h2 class="text-3xl md:text-4xl font-bold text-[#0D0F1C] tracking-tight mb-4">
-                Key Benefits
+                {{ __('Key Benefits') }}
             </h2>
             <p class="text-base text-[#0D0F1C] leading-relaxed max-w-2xl mb-10">
-                Ushine provides a platform for emerging talents to connect with sponsors through a gamified donation system. Here's how you can benefit:
+                {{ __("Ushine provides a platform for emerging talents to connect with sponsors through a gamified donation system. Here's how you can benefit:") }}
             </p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -105,9 +105,9 @@
                     <svg class="w-6 h-6 text-[#0D0F1C] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
-                    <h3 class="text-base font-bold text-[#0D0F1C] mb-1">Share Your Talent</h3>
+                    <h3 class="text-base font-bold text-[#0D0F1C] mb-1">{{ __('Share Your Talent') }}</h3>
                     <p class="text-sm text-[#47569E] leading-relaxed">
-                        Showcase your unique skills and passions to a global audience of potential sponsors.
+                        {{ __('Showcase your unique skills and passions to a global audience of potential sponsors.') }}
                     </p>
                 </div>
                 
@@ -116,9 +116,9 @@
                     <svg class="w-6 h-6 text-[#0D0F1C] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <h3 class="text-base font-bold text-[#0D0F1C] mb-1">Receive Support</h3>
+                    <h3 class="text-base font-bold text-[#0D0F1C] mb-1">{{ __('Receive Support') }}</h3>
                     <p class="text-sm text-[#47569E] leading-relaxed">
-                        Receive financial and mentorship support from sponsors who believe in your vision.
+                        {{ __('Receive financial and mentorship support from sponsors who believe in your vision.') }}
                     </p>
                 </div>
                 
@@ -127,9 +127,9 @@
                     <svg class="w-6 h-6 text-[#0D0F1C] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                     </svg>
-                    <h3 class="text-base font-bold text-[#0D0F1C] mb-1">Grow Together</h3>
+                    <h3 class="text-base font-bold text-[#0D0F1C] mb-1">{{ __('Grow Together') }}</h3>
                     <p class="text-sm text-[#47569E] leading-relaxed">
-                        Collaborate with fellow talents, learn from experienced mentors, and expand your network.
+                        {{ __('Collaborate with fellow talents, learn from experienced mentors, and expand your network.') }}
                     </p>
                 </div>
             </div>
@@ -140,7 +140,7 @@
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="max-w-6xl mx-auto">
             <div class="mb-4">
-                <span class="text-lg font-bold text-[#0D0F1C] tracking-tight">Featured Talents</span>
+                <span class="text-lg font-bold text-[#0D0F1C] tracking-tight">{{ __('Featured Talents') }}</span>
             </div>
             
             <div class="overflow-x-auto pb-4">
@@ -154,7 +154,7 @@
                         </div>
                         <div class="mt-4">
                             <h4 class="text-base font-medium text-[#0D0F1C]">Ava Carter</h4>
-                            <p class="text-sm text-[#47569E]">Singer-songwriter</p>
+                            <p class="text-sm text-[#47569E]">{{ __('Singer-songwriter') }}</p>
                         </div>
                     </div>
                     
@@ -167,7 +167,7 @@
                         </div>
                         <div class="mt-4">
                             <h4 class="text-base font-medium text-[#0D0F1C]">Ethan Blake</h4>
-                            <p class="text-sm text-[#47569E]">Contemporary dancer</p>
+                            <p class="text-sm text-[#47569E]">{{ __('Contemporary dancer') }}</p>
                         </div>
                     </div>
                     
@@ -180,7 +180,7 @@
                         </div>
                         <div class="mt-4">
                             <h4 class="text-base font-medium text-[#0D0F1C]">Sophia Bennett</h4>
-                            <p class="text-sm text-[#47569E]">Visual artist</p>
+                            <p class="text-sm text-[#47569E]">{{ __('Visual artist') }}</p>
                         </div>
                     </div>
                     
@@ -193,7 +193,7 @@
                         </div>
                         <div class="mt-4">
                             <h4 class="text-base font-medium text-[#0D0F1C]">Liam Harper</h4>
-                            <p class="text-sm text-[#47569E]">Jazz musician</p>
+                            <p class="text-sm text-[#47569E]">{{ __('Jazz musician') }}</p>
                         </div>
                     </div>
                     
@@ -206,7 +206,7 @@
                         </div>
                         <div class="mt-4">
                             <h4 class="text-base font-medium text-[#0D0F1C]">Olivia Hayes</h4>
-                            <p class="text-sm text-[#47569E]">Creative writer</p>
+                            <p class="text-sm text-[#47569E]">{{ __('Creative writer') }}</p>
                         </div>
                     </div>
                 </div>
@@ -218,17 +218,17 @@
     <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-[#0D0F1C] tracking-tight mb-8">
-                Ready to Shine? Join Our Community
+                {{ __('Ready to Shine? Join Our Community') }}
             </h2>
             @auth
                 <a href="{{ route('homepage') }}" 
                    class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                    <span class="text-base font-bold text-white tracking-wide">Go to Homepage</span>
+                    <span class="text-base font-bold text-white tracking-wide">{{ __('Go to Homepage') }}</span>
                 </a>
             @else
                 <a href="{{ route('register') }}" 
                    class="inline-flex h-12 px-5 bg-[#607AFB] rounded-xl items-center justify-center hover:bg-[#4F64D9] transition-colors">
-                    <span class="text-base font-bold text-white tracking-wide">Join Ushine Today</span>
+                    <span class="text-base font-bold text-white tracking-wide">{{ __('Join Ushine Today') }}</span>
                 </a>
             @endauth
         </div>
@@ -238,10 +238,10 @@
     <footer class="border-t border-[#E6E9F4] mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex flex-wrap justify-center gap-8 mb-6">
-                <a href="#" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">About</a>
-                <a href="#" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">Contact</a>
-                <a href="#" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">Terms of Service</a>
-                <a href="#" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">Privacy Policy</a>
+                <a href="#" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">{{ __('About') }}</a>
+                <a href="#" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">{{ __('Contact') }}</a>
+                <a href="{{ route('terms') }}" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">{{ __('Terms of Service') }}</a>
+                <a href="#" class="text-base text-[#47569E] hover:text-[#0D0F1C] transition-colors">{{ __('Privacy Policy') }}</a>
             </div>
             <div class="flex justify-center gap-4 mb-6">
                 <a href="#" class="text-[#47569E] hover:text-[#0D0F1C] transition-colors">
@@ -262,7 +262,7 @@
                 </a>
             </div>
             <p class="text-center text-base text-[#47569E]">
-                © 2024 Ushine. All rights reserved.
+                © 2026 Ushine. {{ __('All rights reserved.') }}
             </p>
         </div>
     </footer>
