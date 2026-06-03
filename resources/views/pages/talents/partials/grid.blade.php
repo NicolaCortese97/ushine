@@ -4,8 +4,8 @@
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <p style="font-size: 16px; font-weight: 700; color: #1a1a1a;">No talents found</p>
-        <p style="font-size: 14px; margin-top: 4px;">Try adjusting your keyword or category filters.</p>
+        <p style="font-size: 16px; font-weight: 700; color: #1a1a1a;">{{ __('No talents found') }}</p>
+        <p style="font-size: 14px; margin-top: 4px;">{{ __('Try adjusting your keyword or category filters.') }}</p>
     </div>
 @else
     <div class="talents-grid">
@@ -18,7 +18,7 @@
                 @endif
                 
                 <h3 class="talent-name">{{ $talent->name }} {{ $talent->cognome }}</h3>
-                <p class="talent-level">Level {{ $talent->level ?? 1 }}</p>
+                <p class="talent-level">{{ __('Level') }} {{ $talent->level ?? 1 }}</p>
                 
                 <div class="category-badges">
                     @foreach($talent->categories as $cat)
@@ -26,7 +26,7 @@
                     @endforeach
                 </div>
                 
-                <a href="{{ route('profileInfo') }}" class="view-profile-btn">View Profile</a>
+                <a href="{{ route('profileInfo') }}" class="view-profile-btn">{{ __('View Profile') }}</a>
             </div>
         @endforeach
     </div>

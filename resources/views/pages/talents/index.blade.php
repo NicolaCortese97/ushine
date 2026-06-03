@@ -390,8 +390,8 @@
 <div class="talents-container">
     {{-- Header --}}
     <div class="talents-header">
-        <h1>Discover Talents</h1>
-        <p>Find and connect with outstanding talents on Ushine</p>
+        <h1>{{ __('Discover Talents') }}</h1>
+        <p>{{ __('Find and connect with outstanding talents on Ushine') }}</p>
     </div>
 
     {{-- Search Form --}}
@@ -401,11 +401,11 @@
                 <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-                <input type="text" name="q" id="search-q" value="{{ request('q') }}" class="search-input" placeholder="Search by name, surname, or bio...">
+                <input type="text" name="q" id="search-q" value="{{ request('q') }}" class="search-input" placeholder="{{ __('Search by name, surname, or bio...') }}">
             </div>
             
             <select name="category_id" id="search-category" class="category-select">
-                <option value="">All Categories</option>
+                <option value="">{{ __('All Categories') }}</option>
                 @foreach($categories as $cat)
                     <option value="{{ $cat->id }}" {{ request('category_id') == $cat->id ? 'selected' : '' }}>
                         {{ $cat->name }}
@@ -413,9 +413,9 @@
                 @endforeach
             </select>
             
-            <button type="submit" class="search-btn">Search</button>
+            <button type="submit" class="search-btn">{{ __('Search') }}</button>
             
-            <a href="{{ route('talents.index') }}" id="clear-search-btn" class="clear-btn" style="display: {{ request()->anyFilled(['q', 'category_id']) ? 'inline-block' : 'none' }};">Clear</a>
+            <a href="{{ route('talents.index') }}" id="clear-search-btn" class="clear-btn" style="display: {{ request()->anyFilled(['q', 'category_id']) ? 'inline-block' : 'none' }};">{{ __('Clear') }}</a>
         </form>
     </div>
 
@@ -430,7 +430,7 @@
         <div id="search-results-section" style="order: 1; display: {{ $isSearching ? 'block' : 'none' }}; margin-bottom: 40px;">
             <h2 class="section-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Search Results
+                {{ __('Search Results') }}
             </h2>
             
             <div id="talents-grid-container">
@@ -444,7 +444,7 @@
         <div id="trending-section" style="order: {{ $isSearching ? '2' : '0' }}; margin-bottom: 40px;">
             <h2 class="section-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                Trending Talents (Most Viewed)
+                {{ __('Trending Talents (Most Viewed)') }}
             </h2>
             
             <div class="trending-carousel-wrapper">
@@ -463,12 +463,12 @@
                             GM
                         </div>
                         <h3 class="featured-name">Gabriele Moretti</h3>
-                        <p class="talent-level">Level 14 &bull; <span style="color:#1d4ed8; font-weight:700;">24.8k views</span></p>
+                        <p class="talent-level">{{ __('Level') }} 14 &bull; <span style="color:#1d4ed8; font-weight:700;">24.8k {{ __('views') }}</span></p>
                         <div class="category-badges">
-                            <span class="featured-category-badge">Danza Classica</span>
+                            <span class="featured-category-badge">{{ __('Danza Classica') }}</span>
                         </div>
-                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"Ballerino solista con esperienze internazionali. Esprimere l'invisibile attraverso il movimento."</p>
-                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">View Profile</a>
+                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"{{ __('Ballerino solista con esperienze internazionali. Esprimere l\'invisibile attraverso il movimento.') }}"</p>
+                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">{{ __('View Profile') }}</a>
                     </div>
 
                     {{-- Fake Talent 2 --}}
@@ -477,12 +477,12 @@
                             FL
                         </div>
                         <h3 class="featured-name">Francesca Leone</h3>
-                        <p class="talent-level">Level 12 &bull; <span style="color:#1d4ed8; font-weight:700;">18.2k views</span></p>
+                        <p class="talent-level">{{ __('Level') }} 12 &bull; <span style="color:#1d4ed8; font-weight:700;">18.2k {{ __('views') }}</span></p>
                         <div class="category-badges">
-                            <span class="featured-category-badge">Canto & Musica</span>
+                            <span class="featured-category-badge">{{ __('Canto & Musica') }}</span>
                         </div>
-                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"Cantautrice e pianista jazz. Le note raccontano storie che le parole non sanno dire."</p>
-                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">View Profile</a>
+                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"{{ __('Cantautrice e pianista jazz. Le note raccontano storie che le parole non sanno dire.') }}"</p>
+                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">{{ __('View Profile') }}</a>
                     </div>
 
                     {{-- Fake Talent 3 --}}
@@ -491,12 +491,12 @@
                             VE
                         </div>
                         <h3 class="featured-name">Valerio Esposito</h3>
-                        <p class="talent-level">Level 15 &bull; <span style="color:#1d4ed8; font-weight:700;">31.5k views</span></p>
+                        <p class="talent-level">{{ __('Level') }} 15 &bull; <span style="color:#1d4ed8; font-weight:700;">31.5k {{ __('views') }}</span></p>
                         <div class="category-badges">
-                            <span class="featured-category-badge">Sport</span>
+                            <span class="featured-category-badge">{{ __('Sport') }}</span>
                         </div>
-                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"Ginnasta agonista. Determinazione ferrea, costanza e il sogno delle Olimpiadi nel quale."</p>
-                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">View Profile</a>
+                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"{{ __('Ginnasta agonista. Determinazione ferrea, costanza e il sogno delle Olimpiadi nel quale.') }}"</p>
+                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">{{ __('View Profile') }}</a>
                     </div>
 
                     {{-- Fake Talent 4 --}}
@@ -505,12 +505,12 @@
                             BR
                         </div>
                         <h3 class="featured-name">Beatrice Romano</h3>
-                        <p class="talent-level">Level 11 &bull; <span style="color:#1d4ed8; font-weight:700;">15.9k views</span></p>
+                        <p class="talent-level">{{ __('Level') }} 11 &bull; <span style="color:#1d4ed8; font-weight:700;">15.9k {{ __('views') }}</span></p>
                         <div class="category-badges">
-                            <span class="featured-category-badge">Recitazione</span>
+                            <span class="featured-category-badge">{{ __('Recitazione') }}</span>
                         </div>
-                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"Attrice di teatro e cortometraggi. Amo dare vita a personaggi complessi e intensi."</p>
-                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">View Profile</a>
+                        <p style="font-size: 12px; color: #1e3a8a; line-height: 1.5; margin-bottom: 16px; min-height: 54px;">"{{ __('Attrice di teatro e cortometraggi. Amo dare vita a personaggi complessi e intensi.') }}"</p>
+                        <a href="{{ route('profileInfo') }}" class="featured-profile-btn">{{ __('View Profile') }}</a>
                     </div>
                 </div>
             </div>
@@ -620,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Search failed:', err);
             gridContainer.innerHTML = `
                 <div style="background:#f9f9f9; border:1px solid #e0e0e0; border-radius:12px; padding:48px; text-align:center; color:#ef4444; margin-bottom: 40px; font-weight:700;">
-                    Failed to fetch search results. Please try again.
+                    {{ __('Failed to fetch search results. Please try again.') }}
                 </div>
             `;
         });

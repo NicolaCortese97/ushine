@@ -229,9 +229,9 @@
                                 @if($post->user_id === auth()->id() && auth()->user()->tipo_utente !== 'Sponsor')
                                     <form id="del-{{ $post->post_id }}" action="{{ route('posts.destroy', $post) }}" method="POST">
                                         @csrf @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Eliminare questo post?')"
+                                        <button type="submit" onclick="return confirm('{{ __('Are you sure you want to delete this post?') }}')"
                                             style="background:none; border:none; cursor:pointer; color:#ef4444; padding:4px; display:flex; align-items:center;"
-                                            title="Elimina post">
+                                            title="{{ __('Delete post') }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M3 6h18" />

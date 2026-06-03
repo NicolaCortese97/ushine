@@ -505,9 +505,9 @@
                                 </div>
                                 <div class="fb-content">
                                     <p class="fb-text">
-                                        <strong>Elite Sports Group</strong> sent you a sponsorship request!
+                                        {!! __('<strong>:name</strong> sent you a sponsorship request!', ['name' => 'Elite Sports Group']) !!}
                                     </p>
-                                    <span class="fb-time unread">2 minutes ago</span>
+                                    <span class="fb-time unread">{{ __('2 minutes ago') }}</span>
                                 </div>
                                 <span class="fb-unread-dot unread-dot"></span>
                                 <button type="button" class="fb-dismiss-btn dismiss-notification-btn" aria-label="Remove">
@@ -531,9 +531,9 @@
                                 </div>
                                 <div class="fb-content">
                                     <p class="fb-text">
-                                        <strong>Level Up!</strong> You reached level 15! Keep shining!
+                                        {!! __('<strong>Level Up!</strong> You reached level 15! Keep shining!') !!}
                                     </p>
-                                    <span class="fb-time unread">1 hour ago</span>
+                                    <span class="fb-time unread">{{ __('1 hour ago') }}</span>
                                 </div>
                                 <span class="fb-unread-dot unread-dot"></span>
                                 <button type="button" class="fb-dismiss-btn dismiss-notification-btn" aria-label="Remove">
@@ -557,9 +557,9 @@
                                 </div>
                                 <div class="fb-content">
                                     <p class="fb-text">
-                                        <strong>Francesca Leone</strong> liked your post 'My Danza Classica Routine'
+                                        {!! __('<strong>:name</strong> liked your post :post', ['name' => 'Francesca Leone', 'post' => '\'My Danza Classica Routine\'']) !!}
                                     </p>
-                                    <span class="fb-time unread">3 hours ago</span>
+                                    <span class="fb-time unread">{{ __('3 hours ago') }}</span>
                                 </div>
                                 <span class="fb-unread-dot unread-dot"></span>
                                 <button type="button" class="fb-dismiss-btn dismiss-notification-btn" aria-label="Remove">

@@ -133,7 +133,7 @@
 
             {{-- Level & XP --}}
             <p style="font-size: 12px; font-weight: 600; color:var(--text-secondary); margin-top: 4px; text-align: center;">
-                Level 1 - 0 XP
+                {{ __('Level') }} 1 - 0 XP
             </p>
 
             {{-- Progress Bar --}}
